@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.haibo.mapper.UserMapper">
+    <!-- 用户字段 -->
+    <sql id="UserField">
+        n_id,
+        s_name,
+        s_password,
+        s_sex,
+        s_borth,
+        s_idcard,
+        s_telephone,
+        s_email,
+        s_address,
+        s_nativeprovince,
+        s_nativecity,
+        s_nativearea,
+        s_photo,
+        s_status,
+        tcreatedate,
+        toperatedate
+    </sql>
+    <!-- 用户字段值 -->
+    <sql id="UserValue">
+         #{n_id},
+         #{s_name},
+         #{s_password},
+         #{s_sex},
+         #{s_borth},
+         #{s_idcard},
+         #{s_telephone},
+         #{s_email},
+         #{s_address},
+          #{s_nativeprovince},
+        #{s_nativecity},
+        #{s_nativearea},
+         #{s_photo},
+         #{s_status},
+         #{tcreatedate},
+         #{toperatedate}
+    </sql>
+
+    <resultMap id="UserValue" type="com.haibo.pojo.User" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_name" property="sName" jdbcType="VARCHAR" />
+        <result column="s_password" property="sPassword" jdbcType="VARCHAR" />
+        <result column="s_sex" property="sSex" jdbcType="VARCHAR" />
+        <result column="s_borth" property="sBorth" jdbcType="TIMESTAMP" />
+        <result column="s_idcard" property="sIdcard" jdbcType="VARCHAR" />
+        <result column="s_telephone" property="sTelephone" jdbcType="VARCHAR" />
+        <result column="s_email" property="sEmail" jdbcType="VARCHAR" />
+        <result column="s_address" property="sAddress" jdbcType="VARCHAR" />
+        <result column="s_nativeprovince" property="sNativeprovince" jdbcType="VARCHAR" />
+        <result column="s_nativecity" property="sNativecity" jdbcType="VARCHAR" />
+        <result column="s_nativearea" property="sNativearea" jdbcType="VARCHAR" />
+        <result column="s_photo" property="sPhoto" jdbcType="CHAR" />
+        <result column="s_status" property="sStatus" jdbcType="INTEGER" />
+        <result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />
+        <result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />
+    </resultMap>
+
+
+    <!-- 用户表 -->
+    <sql id="UserTable">
+        user
+    </sql>
+
+    <!-- 根据姓名密码来判断用户是否存在 -->
+
+    <select id="loginByUser" parameterType="User" resultType="User">
+        SELECT
+        <include refid="UserField"></include>
+        FROM
+        <include refid="UserTable"></include> user
+        WHERE
+      user.s_name=#{s_name}
+        AND
+       user.s_password=#{s_password}
+
+     <!--  select * from user user where user.s_name=#{s_name} and user.s_password=#{s_password}-->
+    </select>
+
+     <!--增加新的用户-->
+    <insert id="addUser" parameterType="User">
+        INSERT INTO
+        <include refid="UserTable"></include>(
+        s_name,
+        s_password,
+        s_sex,
+        s_both,
+        s_idcard,
+        s_telephone,
+        s_email,
+        s_address,
+        s_nativeprovince,
+        s_nativecity,
+        s_nativearea,
+        s_photo,
+       tcreatedate,
+       topertedate
+      )
+        VALUES
+        (#{s_name},
+        #{s_password},
+        #{s_sex},
+        #{s_both},
+        #{s_idcard},
+        #{s_telephone},
+        #{s_email},
+        #{s_address},
+        #{s_nativeprovince},
+        #{s_nativecity},
+        #{s_nativearea},
+        #{s_photo},
+        #{tcreatedate},
+        #{topertedate})
+    </insert>
+
+
+
+</mapper>

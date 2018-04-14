@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ssm3learncar:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="ssm3-learncar.war">
+      <element id="artifact" artifact-name="ssm3learncar:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,61 @@
+#icon{
+			margin-top: 80px;
+			
+		}
+		#icon .icon01{
+			/*width: 25%;*/
+			float:left ;
+			height: 150px;
+			width: 150px;
+			border-radius:50% ;
+			text-align: center;
+			padding-top: 20px;
+			
+		}
+		
+		#icon .iconn01{
+			margin-left: 120px;
+			background:#d7e1fe ;
+		}
+		#icon .iconn02{
+			background:#fbe2b2 ;
+			margin-left: 170px;
+		}
+		#icon .iconn03{
+			background:#fccecc ;
+			margin-left: 170px;
+		}
+		#icon .iconn04{
+			background:#e9defc ;
+			margin-left: 170px;
+			/*margin-right: 80px;*/
+		}
+		
+		
+		#footer{
+			
+			height: 180px;
+			width: 100%;
+			position: fixed;
+			bottom:0;
+			
+			
+			background: #d6e9f7;
+			
+		}
+		
+	
+		
+		#footer .register{
+			position: absolute;
+			margin-top: 45px;
+			left: 50%;
+			margin-left: -140px;
+			border: none;
+				background-color: rgb(150,211,68);
+				color: white;
+				width: 272px;
+				height: 40px;
+				font-size: 17px;   /*字体大小*/
+				letter-spacing: 5px;   /*登和录的间距*/
+		}

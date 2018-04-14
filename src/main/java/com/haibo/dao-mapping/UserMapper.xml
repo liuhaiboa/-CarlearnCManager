@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haibo.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.haibo.daomodel.User" >
+    <id column="n_id" property="nId" jdbcType="BIGINT" />
+    <result column="s_name" property="sName" jdbcType="VARCHAR" />
+    <result column="s_password" property="sPassword" jdbcType="VARCHAR" />
+    <result column="s_sex" property="sSex" jdbcType="VARCHAR" />
+    <result column="s_borth" property="sBorth" jdbcType="TIMESTAMP" />
+    <result column="s_idcard" property="sIdcard" jdbcType="VARCHAR" />
+    <result column="s_telephone" property="sTelephone" jdbcType="VARCHAR" />
+    <result column="s_email" property="sEmail" jdbcType="VARCHAR" />
+    <result column="s_address" property="sAddress" jdbcType="VARCHAR" />
+    <result column="s_nativeplace" property="sNativeplace" jdbcType="VARCHAR" />
+    <result column="s_photo" property="sPhoto" jdbcType="CHAR" />
+    <result column="s_status" property="sStatus" jdbcType="INTEGER" />
+    <result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />
+    <result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    n_id, s_name, s_password, s_sex, s_borth, s_idcard, s_telephone, s_email, s_address, 
+    s_nativeplace, s_photo, s_status, tcreatedate, toperatedate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haibo.daomodel.UserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from user
+    where n_id = #{nId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from user
+    where n_id = #{nId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.haibo.daomodel.UserExample" >
+    delete from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.haibo.daomodel.User" >
+    insert into user (n_id, s_name, s_password, 
+      s_sex, s_borth, s_idcard, 
+      s_telephone, s_email, s_address, 
+      s_nativeplace, s_photo, s_status, 
+      tcreatedate, toperatedate)
+    values (#{nId,jdbcType=BIGINT}, #{sName,jdbcType=VARCHAR}, #{sPassword,jdbcType=VARCHAR}, 
+      #{sSex,jdbcType=VARCHAR}, #{sBorth,jdbcType=TIMESTAMP}, #{sIdcard,jdbcType=VARCHAR}, 
+      #{sTelephone,jdbcType=VARCHAR}, #{sEmail,jdbcType=VARCHAR}, #{sAddress,jdbcType=VARCHAR}, 
+      #{sNativeplace,jdbcType=VARCHAR}, #{sPhoto,jdbcType=CHAR}, #{sStatus,jdbcType=INTEGER}, 
+      #{tcreatedate,jdbcType=TIMESTAMP}, #{toperatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haibo.daomodel.User" >
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        n_id,
+      </if>
+      <if test="sName != null" >
+        s_name,
+      </if>
+      <if test="sPassword != null" >
+        s_password,
+      </if>
+      <if test="sSex != null" >
+        s_sex,
+      </if>
+      <if test="sBorth != null" >
+        s_borth,
+      </if>
+      <if test="sIdcard != null" >
+        s_idcard,
+      </if>
+      <if test="sTelephone != null" >
+        s_telephone,
+      </if>
+      <if test="sEmail != null" >
+        s_email,
+      </if>
+      <if test="sAddress != null" >
+        s_address,
+      </if>
+      <if test="sNativeplace != null" >
+        s_nativeplace,
+      </if>
+      <if test="sPhoto != null" >
+        s_photo,
+      </if>
+      <if test="sStatus != null" >
+        s_status,
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate,
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        #{nId,jdbcType=BIGINT},
+      </if>
+      <if test="sName != null" >
+        #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sPassword != null" >
+        #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null" >
+        #{sSex,jdbcType=VARCHAR},
+      </if>
+      <if test="sBorth != null" >
+        #{sBorth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sIdcard != null" >
+        #{sIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sTelephone != null" >
+        #{sTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sEmail != null" >
+        #{sEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sAddress != null" >
+        #{sAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sNativeplace != null" >
+        #{sNativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="sPhoto != null" >
+        #{sPhoto,jdbcType=CHAR},
+      </if>
+      <if test="sStatus != null" >
+        #{sStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tcreatedate != null" >
+        #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.haibo.daomodel.UserExample" resultType="java.lang.Integer" >
+    select count(*) from user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update user
+    <set >
+      <if test="record.nId != null" >
+        n_id = #{record.nId,jdbcType=BIGINT},
+      </if>
+      <if test="record.sName != null" >
+        s_name = #{record.sName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPassword != null" >
+        s_password = #{record.sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sSex != null" >
+        s_sex = #{record.sSex,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sBorth != null" >
+        s_borth = #{record.sBorth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sIdcard != null" >
+        s_idcard = #{record.sIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sTelephone != null" >
+        s_telephone = #{record.sTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sEmail != null" >
+        s_email = #{record.sEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sAddress != null" >
+        s_address = #{record.sAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sNativeplace != null" >
+        s_nativeplace = #{record.sNativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPhoto != null" >
+        s_photo = #{record.sPhoto,jdbcType=CHAR},
+      </if>
+      <if test="record.sStatus != null" >
+        s_status = #{record.sStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.tcreatedate != null" >
+        tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.toperatedate != null" >
+        toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update user
+    set n_id = #{record.nId,jdbcType=BIGINT},
+      s_name = #{record.sName,jdbcType=VARCHAR},
+      s_password = #{record.sPassword,jdbcType=VARCHAR},
+      s_sex = #{record.sSex,jdbcType=VARCHAR},
+      s_borth = #{record.sBorth,jdbcType=TIMESTAMP},
+      s_idcard = #{record.sIdcard,jdbcType=VARCHAR},
+      s_telephone = #{record.sTelephone,jdbcType=VARCHAR},
+      s_email = #{record.sEmail,jdbcType=VARCHAR},
+      s_address = #{record.sAddress,jdbcType=VARCHAR},
+      s_nativeplace = #{record.sNativeplace,jdbcType=VARCHAR},
+      s_photo = #{record.sPhoto,jdbcType=CHAR},
+      s_status = #{record.sStatus,jdbcType=INTEGER},
+      tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibo.daomodel.User" >
+    update user
+    <set >
+      <if test="sName != null" >
+        s_name = #{sName,jdbcType=VARCHAR},
+      </if>
+      <if test="sPassword != null" >
+        s_password = #{sPassword,jdbcType=VARCHAR},
+      </if>
+      <if test="sSex != null" >
+        s_sex = #{sSex,jdbcType=VARCHAR},
+      </if>
+      <if test="sBorth != null" >
+        s_borth = #{sBorth,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sIdcard != null" >
+        s_idcard = #{sIdcard,jdbcType=VARCHAR},
+      </if>
+      <if test="sTelephone != null" >
+        s_telephone = #{sTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="sEmail != null" >
+        s_email = #{sEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="sAddress != null" >
+        s_address = #{sAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="sNativeplace != null" >
+        s_nativeplace = #{sNativeplace,jdbcType=VARCHAR},
+      </if>
+      <if test="sPhoto != null" >
+        s_photo = #{sPhoto,jdbcType=CHAR},
+      </if>
+      <if test="sStatus != null" >
+        s_status = #{sStatus,jdbcType=INTEGER},
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate = #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibo.daomodel.User" >
+    update user
+    set s_name = #{sName,jdbcType=VARCHAR},
+      s_password = #{sPassword,jdbcType=VARCHAR},
+      s_sex = #{sSex,jdbcType=VARCHAR},
+      s_borth = #{sBorth,jdbcType=TIMESTAMP},
+      s_idcard = #{sIdcard,jdbcType=VARCHAR},
+      s_telephone = #{sTelephone,jdbcType=VARCHAR},
+      s_email = #{sEmail,jdbcType=VARCHAR},
+      s_address = #{sAddress,jdbcType=VARCHAR},
+      s_nativeplace = #{sNativeplace,jdbcType=VARCHAR},
+      s_photo = #{sPhoto,jdbcType=CHAR},
+      s_status = #{sStatus,jdbcType=INTEGER},
+      tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{toperatedate,jdbcType=TIMESTAMP}
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+</mapper>

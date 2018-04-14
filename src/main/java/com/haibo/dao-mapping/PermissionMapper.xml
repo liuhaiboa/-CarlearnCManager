@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haibo.dao.PermissionMapper" >
+  <resultMap id="BaseResultMap" type="com.haibo.daomodel.Permission" >
+    <id column="n_id" property="nId" jdbcType="BIGINT" />
+    <result column="s_url" property="sUrl" jdbcType="VARCHAR" />
+    <result column="s_pername" property="sPername" jdbcType="VARCHAR" />
+    <result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />
+    <result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    n_id, s_url, s_pername, tcreatedate, toperatedate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haibo.daomodel.PermissionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from permission
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from permission
+    where n_id = #{nId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from permission
+    where n_id = #{nId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.haibo.daomodel.PermissionExample" >
+    delete from permission
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.haibo.daomodel.Permission" >
+    insert into permission (n_id, s_url, s_pername, 
+      tcreatedate, toperatedate)
+    values (#{nId,jdbcType=BIGINT}, #{sUrl,jdbcType=VARCHAR}, #{sPername,jdbcType=VARCHAR}, 
+      #{tcreatedate,jdbcType=TIMESTAMP}, #{toperatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haibo.daomodel.Permission" >
+    insert into permission
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        n_id,
+      </if>
+      <if test="sUrl != null" >
+        s_url,
+      </if>
+      <if test="sPername != null" >
+        s_pername,
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate,
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        #{nId,jdbcType=BIGINT},
+      </if>
+      <if test="sUrl != null" >
+        #{sUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sPername != null" >
+        #{sPername,jdbcType=VARCHAR},
+      </if>
+      <if test="tcreatedate != null" >
+        #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.haibo.daomodel.PermissionExample" resultType="java.lang.Integer" >
+    select count(*) from permission
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update permission
+    <set >
+      <if test="record.nId != null" >
+        n_id = #{record.nId,jdbcType=BIGINT},
+      </if>
+      <if test="record.sUrl != null" >
+        s_url = #{record.sUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPername != null" >
+        s_pername = #{record.sPername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tcreatedate != null" >
+        tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.toperatedate != null" >
+        toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update permission
+    set n_id = #{record.nId,jdbcType=BIGINT},
+      s_url = #{record.sUrl,jdbcType=VARCHAR},
+      s_pername = #{record.sPername,jdbcType=VARCHAR},
+      tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibo.daomodel.Permission" >
+    update permission
+    <set >
+      <if test="sUrl != null" >
+        s_url = #{sUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="sPername != null" >
+        s_pername = #{sPername,jdbcType=VARCHAR},
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate = #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibo.daomodel.Permission" >
+    update permission
+    set s_url = #{sUrl,jdbcType=VARCHAR},
+      s_pername = #{sPername,jdbcType=VARCHAR},
+      tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{toperatedate,jdbcType=TIMESTAMP}
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.haibo.dao.PermissionunionroleMapper" >
+  <resultMap id="BaseResultMap" type="com.haibo.daomodel.Permissionunionrole" >
+    <id column="n_id" property="nId" jdbcType="BIGINT" />
+    <result column="s_roleid" property="sRoleid" jdbcType="VARCHAR" />
+    <result column="s_preid" property="sPreid" jdbcType="VARCHAR" />
+    <result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />
+    <result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    n_id, s_roleid, s_preid, tcreatedate, toperatedate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.haibo.daomodel.PermissionunionroleExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from permissionunionrole
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from permissionunionrole
+    where n_id = #{nId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from permissionunionrole
+    where n_id = #{nId,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.haibo.daomodel.PermissionunionroleExample" >
+    delete from permissionunionrole
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.haibo.daomodel.Permissionunionrole" >
+    insert into permissionunionrole (n_id, s_roleid, s_preid, 
+      tcreatedate, toperatedate)
+    values (#{nId,jdbcType=BIGINT}, #{sRoleid,jdbcType=VARCHAR}, #{sPreid,jdbcType=VARCHAR}, 
+      #{tcreatedate,jdbcType=TIMESTAMP}, #{toperatedate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.haibo.daomodel.Permissionunionrole" >
+    insert into permissionunionrole
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        n_id,
+      </if>
+      <if test="sRoleid != null" >
+        s_roleid,
+      </if>
+      <if test="sPreid != null" >
+        s_preid,
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate,
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="nId != null" >
+        #{nId,jdbcType=BIGINT},
+      </if>
+      <if test="sRoleid != null" >
+        #{sRoleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sPreid != null" >
+        #{sPreid,jdbcType=VARCHAR},
+      </if>
+      <if test="tcreatedate != null" >
+        #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.haibo.daomodel.PermissionunionroleExample" resultType="java.lang.Integer" >
+    select count(*) from permissionunionrole
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update permissionunionrole
+    <set >
+      <if test="record.nId != null" >
+        n_id = #{record.nId,jdbcType=BIGINT},
+      </if>
+      <if test="record.sRoleid != null" >
+        s_roleid = #{record.sRoleid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sPreid != null" >
+        s_preid = #{record.sPreid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tcreatedate != null" >
+        tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.toperatedate != null" >
+        toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update permissionunionrole
+    set n_id = #{record.nId,jdbcType=BIGINT},
+      s_roleid = #{record.sRoleid,jdbcType=VARCHAR},
+      s_preid = #{record.sPreid,jdbcType=VARCHAR},
+      tcreatedate = #{record.tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{record.toperatedate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.haibo.daomodel.Permissionunionrole" >
+    update permissionunionrole
+    <set >
+      <if test="sRoleid != null" >
+        s_roleid = #{sRoleid,jdbcType=VARCHAR},
+      </if>
+      <if test="sPreid != null" >
+        s_preid = #{sPreid,jdbcType=VARCHAR},
+      </if>
+      <if test="tcreatedate != null" >
+        tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="toperatedate != null" >
+        toperatedate = #{toperatedate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.haibo.daomodel.Permissionunionrole" >
+    update permissionunionrole
+    set s_roleid = #{sRoleid,jdbcType=VARCHAR},
+      s_preid = #{sPreid,jdbcType=VARCHAR},
+      tcreatedate = #{tcreatedate,jdbcType=TIMESTAMP},
+      toperatedate = #{toperatedate,jdbcType=TIMESTAMP}
+    where n_id = #{nId,jdbcType=BIGINT}
+  </update>
+</mapper>

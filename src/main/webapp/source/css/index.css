@@ -1,0 +1,68 @@
+
+.body{
+	background:#cee8f7;
+	margin: 0;
+	padding: 0;
+}
+.wrap{
+	width: 414px;
+	height: 312px;
+	/*border:solid 2px white;/*边框*/
+border-radius: 3px;
+	background-color:#fbe2b2 ;
+	position: absolute;
+	top:155px;
+	left: 50%;
+	margin-left: -207px;
+
+
+}
+.wrap .title{
+	font-size: 20px;
+	color: #333;
+	margin-bottom: 16px;
+	margin-top: 35px;
+	text-align: center;
+}
+
+#login-form{
+	width: 272px;
+	height: 150px;
+	margin: 0px auto;
+
+}
+#login-form input,button{
+	display: block;
+}
+#login-form input{
+	width: 258px;
+	height: 18px;
+	padding: 10px;
+	padding-right: 0px;
+
+	margin-bottom: 17px;
+	border-radius: 3px;
+	border:solid 1px gainsboro;
+
+
+}
+/*选中后的效果*/
+#login-form input:focus{
+	border:solid #348 gainsboro;
+
+}
+#login-form button{
+	border: none;
+	background-color: rgb(150,211,68);
+	color: white;
+	width: 272px;
+	height: 40px;
+	font-size: 17px;   /*字体大小*/
+	letter-spacing: 5px;   /*登和录的间距*/
+
+}
+#re{
+	position: absolute;
+	right:10px;
+	bottom: 20px;
+}
