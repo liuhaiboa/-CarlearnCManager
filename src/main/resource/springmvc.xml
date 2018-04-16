@@ -41,6 +41,18 @@
         <!-- 内存中的最大值 -->
         <property name="maxInMemorySize" value="40960" />
     </bean>
+
+
+
+<!--
+    <bean id="conversionService"  class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+
+                &lt;!&ndash; 进行日期的转换 &ndash;&gt;
+                <bean class="com.haibo.controller.CustomConverter"/>
+
+        </property>
+    </bean>-->
     <!--配置拦截器-->
     <!--<mvc:interceptors>-->
         <!--<mvc:interceptor>-->

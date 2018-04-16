@@ -15,7 +15,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <title>带select下拉选择框美化的jQuery省市区三级联动插件 - JS代码网</title>
+
     <meta name="keywords" content="jQuery省市区三级联动插件,select下拉选择框美化,jQuery城市选择插件,jQuery城市三级联动" />
     <meta name="description" content="jQuery省市区三级联动代码网络上有很多，但是带下拉框模拟美化的缺少很少见，很不错的jQuery插件。" />
     <link href="../../source/css/city.css" rel="stylesheet" type="text/css" />
@@ -30,7 +30,7 @@
 
 <body>
 <div>
-    <form action="" method="post"enctype="multipart/form-data">
+    <form action="/user/adduser" method="post" enctype="multipart/form-data">
 
         <table border="1" bordercolor="blue" align="center" height="600" width="600"
                cellspacing="0">
@@ -43,14 +43,14 @@
             </tr>
             <tr>
                 <td>性别</td>
-                <td><input type="radio" name="s_sex"/>男
-                    <input type="radio" name="s_sex"/>女<br />
+                <td><input type="radio" name="s_sex" value="nan"/>男
+                    <input type="radio" name="s_sex" value="nv"/>女<br />
                 </td>
             </tr>
             <tr>
 
-                <td> 出生年月（请选择）</td>
-                <td><input type="date" name="s_borth"/><br /></td><!--data格式不支持ie浏览器支持火狐谷歌-->
+                <td> 出生年月</td>
+                <td><input type="text" name="s_borth"/><br /></td><!--data格式不支持ie浏览器支持火狐谷歌-->
             </tr>
             <tr>
                 <td>身份证号</td><td><input type="text" name="s_idcard" /><br /></td><!--此处需要有一个校验-->
@@ -58,7 +58,7 @@
             <tr>
                 <td>电话</td><td><input type="text"  name="s_telephone"/><br /></td></tr><!--此处需要有一个校验-->
             <tr><td>邮箱</td><td><input type="email" name="s_email"/></td></tr>
-            <tr><td>上传照片</td><td><input type="file" name="s_photo" /><br /></td></tr>
+            <%--<tr><td>上传照片</td><td><input type="file" name="s_photo" /><br /></td></tr>--%>
 
             <tr>
                 <td>家庭住址</td><td><input type="text" name="s_address" /><br /></td></tr>
@@ -81,7 +81,7 @@
                                         <li><a href="javascript:void(0)" alt="请选择省份">
                                         	请选择省份</a></li>
                                     </ul>
-                                    <input type="hidden" name="cho_Province" value="请选择省份">
+                                    <input type="hidden" name="s_nativeprovince" value="请选择省份">
                                 </span>
                         <span id="City">
                                     <i>请选择城市</i>
@@ -89,7 +89,7 @@
                                         <li><a href="javascript:void(0)" alt="请选择城市">
                                         	请选择城市</a></li>
                                     </ul>
-                                    <input type="hidden" name="cho_City" value="请选择城市">
+                                    <input type="hidden" name="s_nativecity" value="请选择城市">
                                 </span>
                         <span id="Area">
                                     <i>请选择地区</i>
@@ -97,7 +97,7 @@
                                         <li><a href="javascript:void(0)" alt="请选择地区">
                                         	请选择地区</a></li>
                                     </ul>
-                                    <input type="hidden" name="cho_Area" value="请选择地区">
+                                    <input type="hidden" name="s_nativearea" value="请选择地区">
                                 </span>
                     </div>
                 </div>

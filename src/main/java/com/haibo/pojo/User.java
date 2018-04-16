@@ -12,7 +12,7 @@ public class User implements Serializable {
 
     private String s_password;
     private String s_sex;
-    private Date s_borth;
+//    private Date s_borth;
     private String s_idcard;
     private String s_telephone;
     private String s_email;
@@ -55,13 +55,13 @@ public class User implements Serializable {
         this.s_sex = s_sex;
     }
 
-    public Date getS_borth() {
-        return s_borth;
-    }
+//    public Date getS_borth() {
+//        return s_borth;
+//    }
 
-    public void setS_borth(Date s_borth) {
-        this.s_borth = s_borth;
-    }
+//    public void setS_borth(Date s_borth) {
+//        this.s_borth = s_borth;
+//    }
 
     public String getS_idcard() {
         return s_idcard;
@@ -119,13 +119,6 @@ public class User implements Serializable {
         this.s_nativearea = s_nativearea;
     }
 
-    public String getS_photo() {
-        return s_photo;
-    }
-
-    public void setS_photo(String s_photo) {
-        this.s_photo = s_photo;
-    }
 
     public Integer getS_status() {
         return s_status;
@@ -151,7 +144,6 @@ public class User implements Serializable {
         this.toperatedate = toperatedate;
     }
 
-    private String s_photo;
 
     private Integer s_status;
 

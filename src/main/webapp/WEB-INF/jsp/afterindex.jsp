@@ -22,7 +22,7 @@
 			
 			</form>
 			
-			<a href="../../form.html" id="re">没有账号？ 点我注册</a>
+			<a href="../jsp/form.jsp" id="re">没有账号？ 点我注册</a>
 			
 		</div>
 	</body>

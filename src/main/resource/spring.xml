@@ -58,5 +58,10 @@
     <!-- 配置Service扫描 -->
     <context:component-scan base-package="com.haibo.service" />
 
+    <!--配置文件上传使用解析器-->
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="defaultEncoding" value="UTF-8"></property>-->
+    <!--</bean>-->
+
 </beans>
 

@@ -8,18 +8,14 @@
         s_name,
         s_password,
         s_sex,
-        s_borth,
+
         s_idcard,
         s_telephone,
         s_email,
         s_address,
-        s_nativeprovince,
-        s_nativecity,
-        s_nativearea,
-        s_photo,
-        s_status,
-        tcreatedate,
-        toperatedate
+
+
+        s_status
     </sql>
     <!-- 用户字段值 -->
     <sql id="UserValue">
@@ -27,18 +23,15 @@
          #{s_name},
          #{s_password},
          #{s_sex},
-         #{s_borth},
+
          #{s_idcard},
          #{s_telephone},
          #{s_email},
          #{s_address},
-          #{s_nativeprovince},
-        #{s_nativecity},
-        #{s_nativearea},
-         #{s_photo},
-         #{s_status},
-         #{tcreatedate},
-         #{toperatedate}
+
+
+         #{s_status}
+
     </sql>
 
     <resultMap id="UserValue" type="com.haibo.pojo.User" >
@@ -46,18 +39,14 @@
         <result column="s_name" property="sName" jdbcType="VARCHAR" />
         <result column="s_password" property="sPassword" jdbcType="VARCHAR" />
         <result column="s_sex" property="sSex" jdbcType="VARCHAR" />
-        <result column="s_borth" property="sBorth" jdbcType="TIMESTAMP" />
+
         <result column="s_idcard" property="sIdcard" jdbcType="VARCHAR" />
         <result column="s_telephone" property="sTelephone" jdbcType="VARCHAR" />
         <result column="s_email" property="sEmail" jdbcType="VARCHAR" />
         <result column="s_address" property="sAddress" jdbcType="VARCHAR" />
-        <result column="s_nativeprovince" property="sNativeprovince" jdbcType="VARCHAR" />
-        <result column="s_nativecity" property="sNativecity" jdbcType="VARCHAR" />
-        <result column="s_nativearea" property="sNativearea" jdbcType="VARCHAR" />
-        <result column="s_photo" property="sPhoto" jdbcType="CHAR" />
+
         <result column="s_status" property="sStatus" jdbcType="INTEGER" />
-        <result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />
-        <result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />
+
     </resultMap>
 
 
@@ -88,33 +77,18 @@
         s_name,
         s_password,
         s_sex,
-        s_both,
         s_idcard,
         s_telephone,
         s_email,
-        s_address,
-        s_nativeprovince,
-        s_nativecity,
-        s_nativearea,
-        s_photo,
-       tcreatedate,
-       topertedate
-      )
+        s_address)
         VALUES
         (#{s_name},
         #{s_password},
         #{s_sex},
-        #{s_both},
         #{s_idcard},
         #{s_telephone},
         #{s_email},
-        #{s_address},
-        #{s_nativeprovince},
-        #{s_nativecity},
-        #{s_nativearea},
-        #{s_photo},
-        #{tcreatedate},
-        #{topertedate})
+        #{s_address})
     </insert>
 
 

@@ -2,15 +2,20 @@ package com.haibo.controller;
 
 import com.haibo.pojo.User;
 import com.haibo.service.UserService;
+
+import org.apache.commons.fileupload.FileItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
 
 /**
  * Created with IDEA.
@@ -23,6 +28,29 @@ import javax.servlet.http.HttpSession;
 public class UserController {
     @Autowired
     private UserService userService;
+
+    @RequestMapping(value = "/adduser")
+    public String  addUser( Model model, User user) throws Exception{
+
+        //获取流数据，方便存储
+        //FileItem fi=pic.getFileItem();
+        //pic.getOriginalFilename()获取文件名
+        //上传文件到服务器路径中
+//        File fi=new File(request.getRealPath("/")+"/file/"+pic.getOriginalFilename());
+//        fi.write();
+//        String path = request.getSession().getServletContext().getRealPath("upload");
+//        String fileName = pic.getOriginalFilename();
+//        File dir = new File(path,fileName);
+//        if(!dir.exists()){
+//            dir.mkdirs();
+//        }
+//        //MultipartFile自带的解析方法
+//        pic.transferTo(dir);
+
+    user=userService.addUser(user);
+       model.addAttribute("user",user);
+        return "menu";
+    }
     @RequestMapping(value = "/login")
     public String  login(HttpSession session,Model model,
                       HttpServletResponse response, HttpServletRequest request,
@@ -30,10 +58,10 @@ public class UserController {
                          User user){
 
        user=userService.checkLogin(user.getS_name(),user.getS_password());
-        //若有user则添加到model里并且跳转到成功页面
+        //若有user则添加到model里并且跳转到成功页  2面
         if(user != null){
             model.addAttribute("user",user);
-            return "main";
+            return "menu";
         }
         return "index";
     }

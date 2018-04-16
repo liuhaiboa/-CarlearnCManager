@@ -14,5 +14,5 @@ public interface UserMapper {
         @Param("s_name") String s_name, @Param("s_password") String s_password );
 
     //用户注册
-    public String addUser(User user);
+    public void addUser(User user);
 }

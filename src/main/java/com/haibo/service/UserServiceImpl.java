@@ -1,5 +1,4 @@
 package com.haibo.service;
-
 import com.haibo.mapper.UserMapper;
 import com.haibo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,14 +14,10 @@ public class UserServiceImpl implements  UserService{
     @Autowired
     private UserMapper userMapper;
 
-
     @Override
     public User checkLogin(String s_name, String s_password) {
-        User user;
-       user= userMapper.loginByUser(s_name,s_password);
-
+        User user= userMapper.loginByUser(s_name,s_password);
         if(user!=null&&user.getS_password().equals(s_password)){
-
             return user;
         }
         return null;
@@ -31,7 +26,6 @@ public class UserServiceImpl implements  UserService{
     @Override
     public User addUser(User user) {
         userMapper.addUser(user);
-
         return user;
     }
 }
