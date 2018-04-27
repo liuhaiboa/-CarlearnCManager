@@ -29,6 +29,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
+
+
+
+
+//注册用户
     @RequestMapping(value = "/adduser")
     public String  addUser( Model model, User user) throws Exception{
 
@@ -51,6 +57,8 @@ public class UserController {
        model.addAttribute("user",user);
         return "menu";
     }
+
+    //用户登录
     @RequestMapping(value = "/login")
     public String  login(HttpSession session,Model model,
                       HttpServletResponse response, HttpServletRequest request,
@@ -78,10 +86,6 @@ public class UserController {
 //
 //
 //        }
-
-
-
-
 
 
 

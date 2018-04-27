@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.haibo.mapper.ScoreMapper" >
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Score" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_score" property="sScore" jdbcType="VARCHAR" />
+        <result column="s_useridcard" property="sUseridcard" jdbcType="VARCHAR" />
+        <result column="s_userid" property="sUserid" jdbcType="INTEGER" />
+        <!--<result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />-->
+        <!--<result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />-->
+    </resultMap>
+
+    <sql id="ScoreFieid">
+        n_id,
+        s_score,
+        s_useridcard,
+        s_userid
+
+    </sql>
+
+    <sql id="ScoreValue">
+         #{n_id},
+        #{s_score},
+        #{s_useridcard},
+       #{s_userid}
+    </sql>
+
+    <sql id="ScoreTable">
+        score
+    </sql>
+
+<!--根据身份证id查询成绩-->
+    <select id="queryChengji" parameterType="String" resultType="String">
+        SELECT
+        <!--select s_score from score sc  where sc.s_useridcard = "111";-->
+        <!--<include refid="UserField"></include>-->
+        s_score
+        FROM
+        <include refid="ScoreTable"></include> sc
+        WHERE
+        sc.s_useridcard=#{s_useridcard}
+
+        <!--  select * from user user where user.s_name=#{s_name} and user.s_password=#{s_password}-->
+    </select>
+
+</mapper>

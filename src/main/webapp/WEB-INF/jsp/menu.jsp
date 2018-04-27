@@ -29,7 +29,7 @@
     <a href="#">
     <div class="icon01 iconn03"><img src="../../source/img/icon03.png" /><h5>约考注册</h5></div>
     </a>
-    <a href="#">
+    <a href="${pageContext.request.contextPath }/chengji.jsp">
     <div class="icon01 iconn04"><img src="../../source/img/icon04.png"/><h5>成绩查询</h5></div>
     </a>
     </div>
@@ -39,9 +39,13 @@
 
 <div id="footer">
 
-    <a href="${pageContext.request.contextPath }/form.jsp">
-        <button class="register">新管理员注册</button>
+    <a href="${pageContext.request.contextPath }/index.jsp">
+        <button class="register">管理员登录</button>
     </a>
+
+    <%--<a href="${pageContext.request.contextPath }/WEB-INF/jsp/manager.jsp">--%>
+        <%--<button class="register">管理员登录</button>--%>
+    <%--</a>--%>
     </br></br></br></br></br></br>
     <a href="https://hl.122.gov.cn/" style="margin-left: 600px;">友情连接：黑龙江公安管理局</a>
     <p style="margin-left: 525px;">本页面基于驾校学员管理制作。   QQ：540450460</p >
