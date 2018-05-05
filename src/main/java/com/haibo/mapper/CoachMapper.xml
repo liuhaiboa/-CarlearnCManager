@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haibo.mapper.CoachMapper" >
+
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Coach" >
+        <id column="coachid" property="coachid" jdbcType="BIGINT" />
+        <result column="coachname" property="coachname" jdbcType="VARCHAR" />
+
+        </resultMap>
+
+    <sql id="CoachFieid">
+        coachid,
+        caochname
+    </sql>
+
+    <sql id="CoachValue">
+        #{coachid},
+        #{coachname}
+    </sql>
+
+    <sql id="CoachTable">
+       coach
+    </sql>
+
+
+    <select id="selectCoach" parameterType="Coach" resultMap="BaseResultMap">
+       select coachname from coach
+    </select>
+
+</mapper>

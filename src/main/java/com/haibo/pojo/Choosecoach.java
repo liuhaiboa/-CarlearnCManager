@@ -11,9 +11,7 @@ public class Choosecoach {
 
     private Integer sStatue;
 
-    private Date tcreatedate;
 
-    private Date toperatedate;
 
     public Long getnId() {
         return nId;
@@ -47,19 +45,5 @@ public class Choosecoach {
         this.sStatue = sStatue;
     }
 
-    public Date getTcreatedate() {
-        return tcreatedate;
-    }
 
-    public void setTcreatedate(Date tcreatedate) {
-        this.tcreatedate = tcreatedate;
-    }
-
-    public Date getToperatedate() {
-        return toperatedate;
-    }
-
-    public void setToperatedate(Date toperatedate) {
-        this.toperatedate = toperatedate;
-    }
 }

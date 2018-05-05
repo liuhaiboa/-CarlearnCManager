@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.haibo.mapper.ChooseCoachMapper" >
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Choosecoach" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_coachid" property="sCoachid" jdbcType="VARCHAR" />
+        <result column="s_studentid" property="sStudentid" jdbcType="VARCHAR" />
+        <result column="s_statue" property="sStatue" jdbcType="INTEGER" />
+
+    </resultMap>
+
+
+
+    <sql id="ChooseCoachFieid">
+        n_id,
+        s_coachid,
+        s_studentid
+    </sql>
+
+    <sql id="ChooseCoachValue">
+        #{n_id},
+         #{s_coachid},
+         #{s_studentid}
+    </sql>
+
+    <sql id="ChooseCoachTable">
+        choosecoach
+    </sql>
+
+
+    <!--增加新的关联-->
+    <insert id="chooseCoach" parameterType="Coach">
+        INSERT INTO
+        <include refid="ChooseCoachTable"></include>(
+        s_coachid,
+        s_studentid)
+        VALUES
+        (#{s_coachid},
+        #{s_studentid})
+    </insert>
+
+
+</mapper>

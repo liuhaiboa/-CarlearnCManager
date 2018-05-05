@@ -70,6 +70,8 @@
      <!--  select * from user user where user.s_name=#{s_name} and user.s_password=#{s_password}-->
     </select>
 
+
+
      <!--增加新的用户-->
     <insert id="addUser" parameterType="User">
         INSERT INTO

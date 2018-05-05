@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.haibo.mapper.RoleMapper" >
+
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Role" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_rolename" property="sRolename" jdbcType="VARCHAR" />
+        <result column="s_rolestatue" property="sRolestatue" jdbcType="INTEGER" />
+        <!--<result column="tcreatedate" property="tcreatedate" jdbcType="TIMESTAMP" />-->
+        <!--<result column="toperatedate" property="toperatedate" jdbcType="TIMESTAMP" />-->
+    </resultMap>
+
+    <sql id="RoleFieid">
+        n_id,
+        s_rolename,
+        s_rolestatue
+    </sql>
+
+    <sql id="RoleValue">
+        #{n_id},
+        #{s_rolename},
+        #{s_rolestatue}
+    </sql>
+
+    <sql id="RoleTable">
+        role
+    </sql>
+
+</mapper>

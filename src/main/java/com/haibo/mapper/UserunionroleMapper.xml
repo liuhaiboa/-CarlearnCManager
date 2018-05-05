@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.haibo.mapper.UserunionroleMapper" >
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Userunionrole" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_userid" property="sUserid" jdbcType="VARCHAR" />
+        <result column="s_roleid" property="sRoleid" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+    <sql id="UserunionroleFieid">
+        n_id,
+        s_userid,
+        s_roleid
+
+    </sql>
+
+    <sql id="UserunionroleValue">
+        #{n_id},
+        #{s_userid},
+        #{s_roleid}
+    </sql>
+
+    <sql id="UserunionroleTable">
+        userunionrole
+    </sql>
+
+
+    <!--添加新的用户与角色关联关系-->
+
+    <insert id="addUserRole" parameterType="Userunionrole">
+
+    </insert>
+
+    </mapper>

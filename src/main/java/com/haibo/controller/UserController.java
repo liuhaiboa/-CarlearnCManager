@@ -62,14 +62,28 @@ public class UserController {
     @RequestMapping(value = "/login")
     public String  login(HttpSession session,Model model,
                       HttpServletResponse response, HttpServletRequest request,
-                      String s_name, String s_password,
+                      String s_name, String s_password,Long n_id,
                          User user){
 
        user=userService.checkLogin(user.getS_name(),user.getS_password());
         //若有user则添加到model里并且跳转到成功页  2面
         if(user != null){
+            if((user.getS_password().equals("admain"))&&(user.getS_name().equals("admain"))){
+                model.addAttribute("user",user);
+                return "menuadmain";
+            }else{
             model.addAttribute("user",user);
-            return "menu";
+
+                session.setAttribute("user",user);
+
+                Object object=session.getAttribute("user");
+                Long currentUserId= user.getN_id();
+
+                session.setAttribute("currentUserId",currentUserId);
+
+                return "menu";
+            }
+
         }
         return "index";
     }

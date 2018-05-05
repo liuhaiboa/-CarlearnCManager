@@ -1,7 +1,6 @@
 package com.haibo.controller;
 
 import com.haibo.pojo.Score;
-import com.haibo.pojo.User;
 import com.haibo.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -36,7 +35,7 @@ public class ScoreController {
        model.addAttribute("score1",s_useridcard);
        // model.addAttribute("score",s_score);
         model.addAttribute("score",s_score);
-        return "chengji";
+        return "chengjishow";
 
     }
 }

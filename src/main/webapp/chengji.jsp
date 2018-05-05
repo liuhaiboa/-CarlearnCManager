@@ -20,26 +20,26 @@
         <td style="width: 200px;">
             <input type="text" name="s_useridcard"/></td>
     </tr>
-    <tr>
-        <td>成绩</td>
-        <td name="s_score" style="width: 200px;"></td>
-    </tr>
+    <%--<tr>--%>
+        <%--<td>成绩</td>--%>
+        <%--<td name="s_score" style="width: 200px;"></td>--%>
+    <%--</tr>--%>
     <td colspan="2" align="center">
         <input type="submit" value="提交" />提交</button>
     </td>
 </table>
 
 </form>
-<table border="1" name="guanli">
-    <tr>
-        <td >用户身份证号</td>
-        <td name="s_useridcard" style="width: 200px;">    </td>
-    </tr>
-    <tr>
-        <td>成绩</td>
-        <td name="s_score" style="width: 200px;">     </td>
-    </tr>
-</table>
+<%--<table border="1" name="guanli">--%>
+    <%--<tr>--%>
+        <%--<td >用户身份证号</td>--%>
+        <%--<td name="s_useridcard" style="width: 200px;">    </td>--%>
+    <%--</tr>--%>
+    <%--<tr>--%>
+        <%--<td>成绩</td>--%>
+        <%--<td name="s_score" style="width: 200px;">     </td>--%>
+    <%--</tr>--%>
+<%--</table>--%>
 
 </body>
 </html>

@@ -16,16 +16,16 @@
 <body>
 <img src="../../source/img/logo.png" />
 <form method="post">
-<table>
+<table border="1">
     <tr>
-        <td>用户身份证号
+        <td style="width: 200px;">用户身份证号
             ${score1}
 
 
         </td>
     </tr>
     <tr name="s_score" value="s_score">
-        <td>
+        <td style="width: 200px;">
 
           <%--<% String score=request.getParameter("s_score");--%>
           <%--%>--%>
