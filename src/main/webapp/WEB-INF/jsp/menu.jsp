@@ -10,13 +10,10 @@
 <html>
 <head>
     <title>Title</title>
-
     <link href="../../source/css/main.css"  rel="stylesheet" type="text/css" />
 </head>
 <body>
-
 <div id="pic">
-
     <img src="../../source/img/logo.png" />
 
     <div id="icon">
