@@ -24,7 +24,8 @@
     <a href="${pageContext.request.contextPath }/zaixianyueche.jsp">
     <div class="icon01 iconn02"><img src="../../source/img/icon02.png"/><h5>在线约车</h5></div>
     </a>
-    <a href="https://hl.122.gov.cn/m/login?">
+        <a href="${pageContext.request.contextPath }/yuekaozhuce.jsp">
+    <%--<a href="https://hl.122.gov.cn/m/login?">--%>
     <div class="icon01 iconn03"><img src="../../source/img/icon03.png" /><h5>约考注册</h5></div>
     </a>
     <a href="${pageContext.request.contextPath }/chengji.jsp">

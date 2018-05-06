@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.haibo.mapper.ExamMapper" >
+    <resultMap id="BaseResultMap" type="com.haibo.pojo.Exam" >
+        <id column="n_id" property="nId" jdbcType="BIGINT" />
+        <result column="s_data" property="sData" jdbcType="VARCHAR" />
+        <result column="s_studentid" property="sStudentid" jdbcType="VARCHAR" />
+        <result column="s_statue" property="sStatue" jdbcType="INTEGER" />
+
+    </resultMap>
+
+
+
+    <sql id="ExamFieid">
+        n_id,
+        s_studentid,
+        s_statue,
+        s_data
+    </sql>
+
+    <sql id="ExamValue">
+        #{n_id},
+        #{s_statue},
+        #{s_studentid},
+        #{s_data}
+    </sql>
+
+    <sql id="ExamTable">
+        exam
+    </sql>
+
+
+    <!--增加考试信息-->
+    <insert id="addExam" parameterType="Exam">
+        INSERT INTO
+          <include refid="ExamTable"></include>
+          (s_studentid,s_data)
+        VALUES
+          (#{exam.sStudentid},#{exam.sData})
+    </insert>
+</mapper>

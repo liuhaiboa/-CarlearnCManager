@@ -5,15 +5,9 @@ import java.util.Date;
 public class Exam {
     private Long nId;
 
-    private String sCoachid;
 
     private String sStudentid;
-
-    private Integer sStatue;
-
-    private Date tcreatedate;
-
-    private Date toperatedate;
+    private String sData;
 
     public Long getnId() {
         return nId;
@@ -23,20 +17,20 @@ public class Exam {
         this.nId = nId;
     }
 
-    public String getsCoachid() {
-        return sCoachid;
-    }
-
-    public void setsCoachid(String sCoachid) {
-        this.sCoachid = sCoachid == null ? null : sCoachid.trim();
-    }
-
     public String getsStudentid() {
         return sStudentid;
     }
 
     public void setsStudentid(String sStudentid) {
-        this.sStudentid = sStudentid == null ? null : sStudentid.trim();
+        this.sStudentid = sStudentid;
+    }
+
+    public String getsData() {
+        return sData;
+    }
+
+    public void setsData(String sData) {
+        this.sData = sData;
     }
 
     public Integer getsStatue() {
@@ -47,19 +41,7 @@ public class Exam {
         this.sStatue = sStatue;
     }
 
-    public Date getTcreatedate() {
-        return tcreatedate;
-    }
+    private Integer sStatue;
 
-    public void setTcreatedate(Date tcreatedate) {
-        this.tcreatedate = tcreatedate;
-    }
 
-    public Date getToperatedate() {
-        return toperatedate;
-    }
-
-    public void setToperatedate(Date toperatedate) {
-        this.toperatedate = toperatedate;
-    }
 }

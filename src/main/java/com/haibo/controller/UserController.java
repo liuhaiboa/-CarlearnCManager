@@ -73,12 +73,9 @@ public class UserController {
                 return "menuadmain";
             }else{
             model.addAttribute("user",user);
-
                 session.setAttribute("user",user);
-
                 Object object=session.getAttribute("user");
                 Long currentUserId= user.getN_id();
-
                 session.setAttribute("currentUserId",currentUserId);
 
                 return "menu";
